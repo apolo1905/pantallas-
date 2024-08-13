@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Solicitudes del Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .requests-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+        .requests-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .request {
+            margin-bottom: 15px;
+        }
+        .request label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .request input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .request button {
+            padding: 10px 20px;
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .request button:hover {
+            background-color: #31b0d5;
+        }
+        .request button.logout {
+            background-color: #d9534f;
+        }
+        .request button.logout:hover {
+            background-color: #c9302c;
+        }
+        .requests-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .requests-list li {
+            background-color: #eaeaea;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="requests-container">
+        <h2>Solicitudes del Usuario</h2>
+        <div class="request">
+            <label for="nuevaSolicitud">Nueva Solicitud</label>
+            <input type="text" id="nuevaSolicitud" placeholder="Escribe tu solicitud">
+            <button onclick="agregarSolicitud()">Agregar Solicitud</button>
+        </div>
+        <h3>Lista de Solicitudes:</h3>
+        <ul class="requests-list" id="listaSolicitudes">
+            <!-- Aquí se añadirán las solicitudes -->
+        </ul>
+        <div class="request">
+            <button class="logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+        <div class="request">
+            <button onclick="volverInicio()">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarSolicitud() {
+            const input = document.getElementById('nuevaSolicitud');
+            const listaSolicitudes = document.getElementById('listaSolicitudes');
+            
+            if (input.value.trim() !== "") {
+                const nuevaSolicitud = document.createElement('li');
+                nuevaSolicitud.textContent = input.value;
+                listaSolicitudes.appendChild(nuevaSolicitud);
+                input.value = "";
+            } else {
+                alert("Por favor, ingrese una solicitud antes de agregar.");
+            }
+        }
+
+        function cerrarSesion() {
+            alert("Has cerrado la sesión.");
+            window.location.href = "login.html";  // Redirige a la página de inicio de sesión
+        }
+
+        function volverInicio() {
+            window.location.href = "index.html";  // Redirige a la página de inicio
+        }
+    </script>
+</body>
+</html>
