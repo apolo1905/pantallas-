@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Ajustes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .settings-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+        .settings-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .setting {
+            margin-bottom: 15px;
+        }
+        .setting label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .setting input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .setting button {
+            padding: 10px 20px;
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .setting button:hover {
+            background-color: #31b0d5;
+        }
+        .setting button.logout {
+            background-color: #d9534f;
+        }
+        .setting button.logout:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <h2>Ajustes</h2>
+        <div class="setting">
+            <label for="notificaciones">Notificaciones</label>
+            <input type="checkbox" id="notificaciones"> Activar notificaciones
+        </div>
+        <div class="setting">
+            <label for="temaOscuro">Tema Oscuro</label>
+            <input type="checkbox" id="temaOscuro"> Activar tema oscuro
+        </div>
+        <div class="setting">
+            <label for="privacidad">Privacidad</label>
+            <input type="checkbox" id="privacidad"> Activar modo de privacidad
+        </div>
+        <div class="setting">
+            <button onclick="guardarAjustes()">Guardar Cambios</button>
+        </div>
+        <div class="setting">
+            <button class="logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+        <div class="setting">
+            <button onclick="volverInicio()">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <script>
+        function guardarAjustes() {
+            alert("Ajustes guardados correctamente.");
+            // Aquí podrías implementar la lógica para guardar los ajustes en el servidor o en el almacenamiento local
+        }
+
+        function cerrarSesion() {
+            alert("Has cerrado la sesión.");
+            // Aquí podrías redirigir al usuario a la página de inicio de sesión u otra página.
+            window.location.href = "login.html";  // Redirige a la página de inicio de sesión
+        }
+
+        function volverInicio() {
+            window.location.href = "index.html";  // Redirige a
