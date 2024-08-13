@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Historial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .history-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+        .history-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .history-list {
+            list-style-type: none;
+            padding: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none; /* Oculta el historial por defecto */
+        }
+        .history-list li {
+            background-color: #eaeaea;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .history-list li:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .button-container button.logout {
+            background-color: #d9534f;
+        }
+        .button-container button.logout:hover {
+            background-color: #c9302c;
+        }
+        .button-container button:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+</head>
+<body>
+    <div class="history-container">
+        <h2>Historial</h2>
+        <button onclick="toggleHistorial()">Mostrar Historial</button>
+        <ul class="history-list" id="listaHistorial">
+            <!-- Aquí se mostrarán los elementos del historial -->
+            <li>Evento 1: Se realizó una acción</li>
+            <li>Evento 2: Se realizó otra acción</li>
+            <li>Evento 3: Se realizó una acción diferente</li>
+            <li>Evento 4: Otra acción se registró</li>
+            <!-- Añade más eventos aquí -->
+        </ul>
+        <div class="button-container">
+            <button class="logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+            <button onclick="volverInicio()">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleHistorial() {
+            const historial = document.getElementById('listaHistorial');
+            const boton = event.target;
+
+            if (historial.style.display === 'none' || historial.style.display === '') {
+                historial.style.display = 'block';
+                boton.textContent = 'Ocultar Historial';
+            } else {
+                historial.style.display = 'none';
+                boton.textContent = 'Mostrar Historial';
+            }
+        }
+
+        function cerrarSesion() {
+            alert("Has cerrado la sesión.");
+            window.location.href = "login.html";  // Redirige a la página de inicio de sesión
+        }
+
+        function volverInicio() {
+            window.location.href = "index.html";  // Redirige a la página de inicio
+        }
+    </script>
+</body>
+</html>
