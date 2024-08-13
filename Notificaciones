@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .notifications-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: left;
+        }
+        .notifications-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .notifications-list {
+            list-style-type: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .notifications-list li {
+            background-color: #eaeaea;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .notifications-list li.read {
+            background-color: #d6e0e4;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button-container button:hover {
+            background-color: #31b0d5;
+        }
+        .button-container button.logout {
+            background-color: #d9534f;
+        }
+        .button-container button.logout:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="notifications-container">
+        <h2>Notificaciones</h2>
+        <ul class="notifications-list" id="listaNotificaciones">
+            <!-- Aquí se mostrarán las notificaciones -->
+            <li>Notificación 1: Se ha actualizado tu perfil.</li>
+            <li>Notificación 2: Tienes un nuevo mensaje.</li>
+            <li>Notificación 3: Se ha realizado un cambio en tus ajustes.</li>
+            <li>Notificación 4: Tu contraseña ha sido cambiada.</li>
+            <!-- Añade más notificaciones aquí -->
+        </ul>
+        <div class="button-container">
+            <button onclick="marcarLeidas()">Marcar como Leídas</button>
+            <button class="logout" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <script>
+        function marcarLeidas() {
+            const notificaciones = document.querySelectorAll('#listaNotificaciones li');
+            notificaciones.forEach(noti => noti.classList.add('read'));
+            alert("Todas las notificaciones han sido marcadas como leídas.");
+        }
+
+        function cerrarSesion() {
+            alert("Has cerrado la sesión.");
+            window.location.href = "login.html";  // Redirige a la página de inicio de sesión
+        }
+    </script>
+</body>
+</html>
